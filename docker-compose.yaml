@@ -1,0 +1,36 @@
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ${VOLUMES_NGINX}
+      - ${VOLUMES_MAIN}
+
+  app:
+    build:
+      dockerfile: ./docker/Dockerfile
+    volumes:
+      # - ./app:/var/www/html
+      - ${VOLUMES_MAIN}
+    environment:
+      MYSQL_HOST: db # docekr db server name
+      MYSQL_PORT: ${DB_PORT}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+
+  db:
+    image: mariadb:latest
+    ports:
+      - "3306:${DB_PORT}"
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+    volumes:
+      - ${VOLUMES_DB}
+volumes:
+  dbdata:
