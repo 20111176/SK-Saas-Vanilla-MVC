@@ -1,0 +1,11 @@
+{
+  "name": "sk-saas-vanilla-mvc",
+  "version": "1.0.0",
+  "description": "## \"SK-SAAS-VANILLA_MVC PHP MICRO FRAMEWORK\"",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
