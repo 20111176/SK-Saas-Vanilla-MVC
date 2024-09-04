@@ -1,5 +1,5 @@
 /**
- * This is config file for Taiwind.config.js
+ * This is config file for tailwind.config.js
  *
  * Filename:        tailwind.config.php
  * Location:        /
@@ -12,7 +12,10 @@
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./public/**/*.{html,js,php}"],
+  content: [
+    "./src/**/*.{html,js}",
+    "./{App,public,config,Framework}/**/*.{html,js,php}"
+  ],
   theme: {
     extend: {},
   },
