@@ -17,10 +17,10 @@
  */
 
 return [
-  'host' => '127.0.0.1',
-  'post' => 3306,
+  // 'host' => '127.0.0.1',
+  'host' => 'db', // call the docker db container
+  'port' => 3306,
   'dbname' => 'sk_saas_vanilla_mvc',
   'username' => 'sk_saas_vanilla_mvc',
   'password' => 'PasswordSecret'
 ];
-

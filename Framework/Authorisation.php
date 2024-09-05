@@ -1,9 +1,7 @@
 <?php
 
 /**
- * Authorisation
- *
- * DESCRIPTION OF THE PURPOSE AND USE OF THE CODE
+ * Handling the authorisation of users.
  *
  * Filename:        Authorisation.php
  * Location:        Framework/

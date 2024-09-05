@@ -52,7 +52,7 @@ function loadView(string $name, $data = []): void
  * @param array $data
  * @return void
  */
-function loadPartials(string $name, $data = []): void
+function loadPartial(string $name, $data = []): void
 {
   $partialPath = basePath("App/views/partials/{$name}.view.php");
 

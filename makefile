@@ -9,3 +9,9 @@ tailwind-watch:
 
 tailwind-build:
 	npx tailwindcss -i src/input.css -o public/assets/css/site.css --build
+
+run:
+	docker compose up -d;
+
+down:
+	docker compose down;

@@ -24,12 +24,7 @@ use PDOException;
 
 class Database
 {
-  /**
-   * Connection Property
-   *
-   * @var PDO
-   */
-  public PDO $conn;
+  public $conn;
 
   /**
    * Constructor for Database class

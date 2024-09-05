@@ -17,7 +17,17 @@ namespace Framework;
 
 class Validation
 {
-  public static function string($value, $min = 1, $max = INF)
+  /**
+   * String validation with minimum and maximum length
+   * 
+   * @default minimum length is 1
+   * @default maximum length is INF
+   * @param string $value
+   * @param integer $min
+   * @param [type] $max
+   * @return boolean
+   */
+  public static function string(string $value, int $min = 1, float $max = INF): bool
   {
     if (is_string($value)) {
       $value = trim($value);
@@ -26,13 +36,27 @@ class Validation
     }
   }
 
-  public static function email($value)
+
+  /**
+   * email validation
+   *
+   * @param string $value
+   * @return boolean
+   */
+  public static function email(string $value): bool
   {
     $value = trim($value);
     return filter_var($value, FILTER_VALIDATE_EMAIL);
   }
 
-  public static function match($value1, $value2)
+  /**
+   * Matching method for two values
+   *
+   * @param string $value1
+   * @param string $value2
+   * @return boolean
+   */
+  public static function match(string $value1, string $value2): bool
   {
     $value1 = trim($value1);
     $value2 = trim($value2);

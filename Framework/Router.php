@@ -16,13 +16,14 @@
 
 namespace Framework;
 
+use App\Controllers\ErrorController;
 use Framework\Middleware\Authorise;
 
 class Router
 {
   protected $routes = [];
 
-  public function registerRoute($method, $uri, $action, $middleware = [])
+  public function registerRoute(string $method, string $uri, string $action, array $middleware = []): void
   {
     list($controller, $controllerMethod) = explode('@', $action);
 
@@ -35,27 +36,27 @@ class Router
     ];
   }
 
-  public function get($uri, $controller, $middleware = [])
+  public function get(string $uri, string $controller, array $middleware = []): void
   {
     $this->registerRoute('GET', $uri, $controller, $middleware);
   }
 
-  public function post($uri, $controller, $middleware = [])
+  public function post(string $uri, string $controller, array $middleware = []): void
   {
     $this->registerRoute('POST', $uri, $controller, $middleware);
   }
 
-  public function put($uri, $controller, $middleware = [])
+  public function put(string $uri, string $controller, array $middleware = []): void
   {
     $this->registerRoute('PUT', $uri, $controller, $middleware);
   }
 
-  public function delete($uri, $controller, $middleware = [])
+  public function delete(string $uri, string $controller, array $middleware = []): void
   {
     $this->registerRoute('DELETE', $uri, $controller, $middleware);
   }
 
-  public function route($uri)
+  public function route(string $uri): void
   {
     $requestMethod = $_SERVER['REQUEST_METHOD'];
     // Check for _method input
@@ -63,13 +64,12 @@ class Router
       // Override the request method with the value of _method
       $requestMethod = strtoupper($_POST['_method']);
     }
-
     foreach ($this->routes as $route) {
       // split the current URI into segments
       $uriSegments = explode('/', trim($uri, '/'));
 
       // split the route URI into segments
-      $routeSegments = explode('/', trim($route['uri']));
+      $routeSegments = explode('/', trim($route['uri'], '/'));
 
       $match = true;
 
@@ -96,14 +96,12 @@ class Router
             $params[$matches[1]] = $uriSegments[$i];
           }
         }
-
-
         if ($match) {
           foreach ($route['Middleware'] as $middleware) {
             (new Authorise())->handle($middleware);
           }
 
-          $controller = 'App\\controllers\\' . $route['controller'];
+          $controller = 'App\\Controllers\\' . $route['controller'];
           $controllerMethod = $route['controllerMethod'];
 
           // Instantiate the controller and call the method  
