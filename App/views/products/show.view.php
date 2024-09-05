@@ -12,7 +12,7 @@
  *
  */
 
-
+use Framework\Authorisation;
 
 loadPartial("header");
 loadPartial('navigation');
@@ -63,7 +63,7 @@ loadPartial('navigation');
       </section>
 
       <?php
-      if (Framework\Authorisation::isOwner($product->user_id)) :
+      if (Authorisation::isOwner($product->user_id)) :
       ?>
         <form method="POST"
           class="px-4 py-4 mt-4 -mx-4 border-0 border-t-1 border-zinc-300 text-lg flex flex-row">

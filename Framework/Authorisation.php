@@ -22,10 +22,9 @@ class Authorisation
    * @param string $resourceId
    * @return boolean
    */
-  public static function isOwner(string $resourceId): bool
+  public static function isOwner(int $resourceId): bool
   {
     $sessionUser = Session::get('user');
-
     if ($sessionUser !== null && isset($sessionUser['id'])) {
       $sessionUserId = (int)$sessionUser['id'];
       return $sessionUserId === $resourceId;
