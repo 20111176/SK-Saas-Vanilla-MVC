@@ -22,7 +22,7 @@
  */
 function basePath(string $path = ''): string
 {
-  return __DIR__ . DIRECTORY_SEPARATOR . $path;
+  return __DIR__ . '/' . $path;
 }
 
 /**
@@ -32,7 +32,7 @@ function basePath(string $path = ''): string
  * @param array $data
  * @return void
  */
-function loadView(string $name, $data = []): void
+function loadView($name, $data = [])
 {
   $viewPath = basePath("App/views/{$name}.view.php");
 
@@ -52,7 +52,7 @@ function loadView(string $name, $data = []): void
  * @param array $data
  * @return void
  */
-function loadPartial(string $name, $data = []): void
+function loadPartial($name, $data = []): void
 {
   $partialPath = basePath("App/views/partials/{$name}.view.php");
 

@@ -23,7 +23,7 @@ class Router
 {
   protected $routes = [];
 
-  public function registerRoute(string $method, string $uri, string $action, array $middleware = []): void
+  public function registerRoute($method, $uri, $action, $middleware = []): void
   {
     list($controller, $controllerMethod) = explode('@', $action);
 
@@ -36,27 +36,27 @@ class Router
     ];
   }
 
-  public function get(string $uri, string $controller, array $middleware = []): void
+  public function get($uri, $controller, $middleware = []): void
   {
     $this->registerRoute('GET', $uri, $controller, $middleware);
   }
 
-  public function post(string $uri, string $controller, array $middleware = []): void
+  public function post($uri, $controller, $middleware = []): void
   {
     $this->registerRoute('POST', $uri, $controller, $middleware);
   }
 
-  public function put(string $uri, string $controller, array $middleware = []): void
+  public function put($uri, $controller, $middleware = []): void
   {
     $this->registerRoute('PUT', $uri, $controller, $middleware);
   }
 
-  public function delete(string $uri, string $controller, array $middleware = []): void
+  public function delete($uri, $controller, $middleware = []): void
   {
     $this->registerRoute('DELETE', $uri, $controller, $middleware);
   }
 
-  public function route(string $uri): void
+  public function route($uri): void
   {
     $requestMethod = $_SERVER['REQUEST_METHOD'];
     // Check for _method input

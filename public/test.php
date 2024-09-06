@@ -12,9 +12,6 @@
  *
  */
 
-use Framework\Middleware\Authorise;
-
-$authenticated = new Authorise();
 ?>
 
 <header class="bg-black text-white p-4 flex-grow-0 flex flex-row align-middle content-center">
@@ -43,33 +40,29 @@ $authenticated = new Authorise();
 
     <div class="flex-grow"></div>
 
-    <?php if ($authenticated->isAuthenticated()): ?>
-      <form method="POST" action="/auth/logout" class="">
-        <button class="pb-2 px-1 text-text-zinc-700-200 hover:text-sky-300
+    <form method="POST" action="/auth/logout" class="">
+      <button class="pb-2 px-1 text-text-zinc-700-200 hover:text-sky-300
                       border-0 border-b-2 hover:border-b-sky-500
                       transition ease-in-out duration-500">
-          <i class="fa fa-search"></i> Logout
-        </button>
-      </form>
-    <?php else: ?>
-      <p><a href="/auth/login"
-          class="pb-2 px-1 text-text-zinc-700-200 hover:text-sky-300
+        <i class="fa fa-search"></i> Logout
+      </button>
+    </form>
+    <p><a href="/auth/login"
+        class="pb-2 px-1 text-text-zinc-700-200 hover:text-sky-300
                 border-0 border-b-2 hover:border-b-sky-500
                 transition ease-in-out duration-500">
-          Login
-        </a></p>
-      <p><a href="/auth/register"
-          class="pb-2 px-1 text-text-zinc-700-200 hover:text-sky-300
+        Login
+      </a></p>
+    <p><a href="/auth/register"
+        class="pb-2 px-1 text-text-zinc-700-200 hover:text-sky-300
                 border-0 border-b-2 hover:border-b-sky-500
                 transition ease-in-out duration-500">
-          Register
-        </a></p>
-    <?php endif; ?>
+        Register
+      </a></p>
 
-    <form method="GET" action="/products/search" class="block mx-5">
+    <form method="GET" class="block mx-5">
       <input type="text" name="keywords" placeholder="Product search..."
-        class="w-full md:w-auto px-4 py-2 focus:outline-none
-              text-black" />
+        class="w-full md:w-auto px-4 py-2 focus:outline-none" />
       <button class="w-full md:w-auto
                     bg-sky-500 hover:bg-sky-600
                     text-white
@@ -78,5 +71,13 @@ $authenticated = new Authorise();
         <i class="fa fa-search"></i> Search
       </button>
     </form>
+
+
+    <?php
+    echo 'home Contlloeer';
+    echo "<pre>";
+    var_dump($_GET);
+    echo "</pre>" ?>
+
   </nav>
 </header>

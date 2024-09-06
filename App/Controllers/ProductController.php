@@ -303,8 +303,13 @@ class ProductController
    */
   public function search()
   {
-    $keywords = isset($_GET['keywords']) ? trim($_GET['keywords']) : '';
+    // I couldn't find why The super global GET cannot get the value
+    // so instead of access Get value try to work alternate way to work  
+    $keywords = explode("?keywords=", $_SERVER['REQUEST_URI']);
+    $keywords = (end($keywords));
 
+    // Below is original code
+    // $keywords = isset($_GET['keywords']) ? trim($_GET['keywords']) : '';
     $query = "SELECT * FROM products WHERE name LIKE :keywords OR description LIKE :keywords ";
 
     $params = [
@@ -314,8 +319,8 @@ class ProductController
     $products = $this->db->query($query, $params)->fetchAll();
 
     loadView('/products/index', [
-      'products' => $products,
       'keywords' => $keywords,
+      'products' => $products,
     ]);
   }
 }

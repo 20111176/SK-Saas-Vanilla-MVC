@@ -15,7 +15,6 @@
 loadPartial('header');
 loadPartial('navigation');
 ?>
-
 <main class="container mx-auto bg-zinc-50 py-8 px-4 shadow shadow-black/25 rounded-b-lg">
   <article>
     <header class="bg-zinc-700 text-zinc-200 -mx-4 -mt-8 p-8 text-2xl font-bold mb-8">

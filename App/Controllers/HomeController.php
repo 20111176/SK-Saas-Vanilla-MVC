@@ -34,6 +34,7 @@ class HomeController
      */
   public function index()
   {
+    
     $lastSixQuery = 'SELECT * FROM products ORDER BY created_at DESC LIMIT 0,6';
     $simpleRandomSixQuery = 'SELECT * FROM products ORDER BY RAND() LIMIT 0,6';
 
