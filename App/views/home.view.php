@@ -76,7 +76,7 @@ loadPartial('navigation');
       ?>
     </section>
 
-    <section class="mx-auto w-1/2 m-8 bg-zinc-200 text-zinc-800 p-8 rounded-lg shadow">
+    <!-- <section class="mx-auto w-1/2 m-8 bg-zinc-200 text-zinc-800 p-8 rounded-lg shadow">
       <dl class="flex flex-col gap-2">
         <dt>Tutorial:</dt>
         <dd>Part 1:
@@ -104,7 +104,7 @@ loadPartial('navigation');
         <dd><a href="https://help.screencraft.net.au"></a></dd>
       </dl>
 
-    </section>
+    </section> -->
 
   </article>
 </main>

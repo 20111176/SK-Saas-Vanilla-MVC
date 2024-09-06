@@ -1207,6 +1207,11 @@ video {
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
+.\!text-black {
+  --tw-text-opacity: 1 !important;
+  color: rgb(0 0 0 / var(--tw-text-opacity)) !important;
+}
+
 .underline {
   text-decoration-line: underline;
 }
@@ -1337,5 +1342,12 @@ video {
 @media (min-width: 768px) {
   .md\:w-auto {
     width: auto;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .dark\:text-black {
+    --tw-text-opacity: 1;
+    color: rgb(0 0 0 / var(--tw-text-opacity));
   }
 }
